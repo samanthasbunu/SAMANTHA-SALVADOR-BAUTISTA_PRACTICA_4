@@ -27,7 +27,7 @@ class pizza(comida):
             print(f"{self.nombre} ingredientes a utilizar.")
 
         def tipo_platillo(self):
-            print(f"{self.nombre} el tiempo del platillo.")
+            print(f"{self.nombre} el tiempo de la comida.")
 
 
 class carlota(comida):
