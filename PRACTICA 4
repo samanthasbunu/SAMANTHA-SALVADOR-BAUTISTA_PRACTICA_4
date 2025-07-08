@@ -1,0 +1,143 @@
+class comida:
+    def __init__ (self,nombre, calorias, tiempo, coccion, origen):
+       self.nombre = nombre
+       self.calorias = calorias
+       self.tiempo = tiempo
+       self.coccion = coccion
+       self.origen = origen
+
+    def ingredientes(self):
+        print(f"{self.nombre} ingredientes a utilizar")
+
+    def cantidad(self):
+        print(f"{self.nombre} cantidad o porcion del platillo")
+
+    def tiempo_platillo(self):
+        print(f"{self.nombre} el tiempo del platillo")
+
+
+
+class pizza(comida):
+        def __init__(self,nombre,calorias,tiempo,coccion,origen, especias, vegana):
+            super().__init__(nombre,calorias,tiempo,coccion,origen)
+            self.especias = especias
+            self.vegana = vegana
+
+        def ingredientes(self):
+            print(f"{self.nombre} ingredientes a utilizar.")
+
+        def tipo_platillo(self):
+            print(f"{self.nombre} el tiempo del platillo.")
+
+
+class carlota(comida):
+        def __init__(self,nombre,calorias,tiempo,coccion,origen, amargo, vegana):
+            super().__init__(nombre,calorias,tiempo,coccion,origen)
+            self.amargo = amargo
+            self.vegana = vegana
+
+        def ingredientes(self):
+            print(f"{self.nombre} ingredientes a utilizar.")
+
+        def tipo_platillo(self):
+            print(f"{self.nombre} el tiempo del platillo.")
+
+
+class chilaquiles(comida):
+        def __init__(self,nombre,calorias,tiempo,coccion,origen, picante, queso):
+            super().__init__(nombre,calorias,tiempo,coccion,origen)
+            self.picante = picante
+            self.queso = queso
+
+        def ingredientes(self):
+            print(f"{self.nombre} ingredientes a utilizar.")
+
+        def tipo_platillo(self):
+            print(f"{self.nombre} el tiempo del platillo.")
+
+
+class sushi(comida):
+        def __init__(self,nombre,calorias,tiempo,coccion,origen, salsas, marisco):
+            super().__init__(nombre,calorias,tiempo,coccion,origen)
+            self.salsas = salsas
+            self.marisco = marisco
+
+        def ingredientes(self):
+            print(f"{self.nombre} ingredientes a utilizar.")
+
+        def tipo_platillo(self):
+            print(f"{self.nombre} el tiempo del platillo.")
+
+
+class macaron(comida):
+        def __init__(self,nombre,calorias,tiempo,coccion,origen, dulce, sabor):
+            super().__init__(nombre,calorias,tiempo,coccion,origen)
+            self.dulce = dulce
+            self.sabor = sabor
+
+        def ingredientes(self):
+            print(f"{self.nombre} ingredientes a utilizar.")
+
+        def tipo_platillo(self):
+            print(f"{self.nombre} el tiempo del platillo.")
+
+#####################
+
+
+print(comida,pizza,carlota,chilaquiles,sushi,macaron)
+
+#pizzas
+#(nombre, calorias, tiempo, coccion, origen, especias, vegana)
+
+p1 = pizza ("pepperoni","494calorias", "1h", "horneado", "italiano", "oregano", False)
+p2 = pizza ("queso", "685calorias","1h20min","horneado","italiano", "basil", False)
+p3 = pizza ("hawaiana","340calorias","1h30min","horneado","Canada", "none", False)
+
+#carlota
+#(nombre, calorias, tiempo, coccion, origen, amargo, vegana)
+c1 = carlota ("limon","487calorias","2h30min","refrigeracion","frances", False, False)
+c2 = carlota ("mango","487calorias","2h30min","refrigeracion","frances", False, True)
+
+#chilaquiles
+#(nombre, calorias, tiempo, coccion, origen, picante, queso)
+ch1 = chilaquiles ("salsaVerde", "411calorias","45min","freir","mexicano", True, True)
+ch2 = chilaquiles ("salsaRoja", "480calorias","45min","freir","mexicano", True, True)
+
+#sushi
+#(nombre, calorias, tiempo, coccion, origen, salsas, marisco)
+s1 = sushi ("nigiri","90calorias","45min","fresco","japones", "soy sauce", True)
+s2 = sushi ("inari","100calorias","45min","fresco","japones", "soy sauce", False)
+s3 = sushi ("temaki","162calorias","50min","fresco","japones", "wasabi", True)
+
+#macaron
+#(nombre, calorias, tiempo, coccion, origen, dulce, sabor)
+m1 = macaron ("chocolate","100calorias","2h","horneado","italiano", True, "chocolate")
+m2 = macaron ("fresa","100calorias","2h","horneado","italiano", True, "strawberry")
+m3 = macaron ("mango","100calorias","2h","horneado","italiano", True, "mango")
+
+
+comidas=[p1,p2,p3,c1,c2,ch1,ch2,s1,s2,s3,m1,m2,m3]
+nombre=[i.nombre for i in comidas]
+tiempo= [t.tiempo for t in comidas]
+import matplotlib.pyplot as plt
+plt.figure(figsize=(15, 5))
+plt.bar(nombre,tiempo, color="orange")
+plt.title("tiempo de realizacion")
+plt.ylabel("tiempo")
+plt.show()
+
+#########################
+
+buscar = input("Nombre del platillo: ")
+
+encontrado = False
+for comida in comidas:
+    if comida.nombre.lower() == buscar.lower():
+        print(f"{comida.nombre} tiene {comida.calorias}.")
+        encontrado = True
+        break
+
+
+
+
+
